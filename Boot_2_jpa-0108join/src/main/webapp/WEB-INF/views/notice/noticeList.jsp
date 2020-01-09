@@ -12,6 +12,10 @@
 <c:import url="../template/nav.jsp" />
 <body>
 <div class="contents">
+
+	<div>
+		<a href="./${board}Write" class="btn btn-danger">Write</a>
+	</div>
 	<table class="table table-hover">
 		<tr>
 			<td>NUM</td>
@@ -20,7 +24,7 @@
 			<td>DATE</td>
 			<td>HIT</td>
 		</tr>
-		<c:forEach items="${list}" var="vo">
+		<c:forEach items="${list.content}" var="vo">
 			<tr>
 				<td>${vo.num}</td>
 				<td style="cursor: pointer;" onclick="location.href='${board}Select?num=${vo.num}';">${vo.title}</td>
@@ -31,19 +35,33 @@
 			</tr>
 		</c:forEach>
 	</table>
+<!-- 	<div style="margin: auto;"> -->
+<!-- 		<ul class="pagination"> -->
+<%-- 			<c:if test="${pager.curBlock gt 1}"> --%>
+<%-- 				<li><span class="list" id="${pager.startNum-1}">이전</span></li> --%>
+<%-- 			</c:if> --%>
+<%-- 			<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i"> --%>
+<%-- 				<li><span class="list" id="${i}">${i+1}</span></li> --%>
+<%-- 			</c:forEach> --%>
+<%-- 			<c:if test="${pager.curBlock ne pager.totalBlock}"> --%>
+<%-- 				<li><span class="list" id="${pager.lastNum+1}">다음</span></li> --%>
+<%-- 			</c:if> --%>
+<!-- 		</ul> -->
+<!-- 	</div> -->
 	<div style="margin: auto;">
-			<ul class="pagination">
-				<c:if test="${pager.curBlock gt 1}">
-					<li><span class="list" id="${pager.startNum-1}">이전</span></li>
-				</c:if>
-				<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-					<li><span class="list" id="${i}">${i}</span></li>
-				</c:forEach>
-				<c:if test="${pager.curBlock ne pager.totalBlock}">
-					<li><span class="list" id="${pager.lastNum+1}">다음</span></li>
-				</c:if>
-			</ul>
-		</div>
+		<ul class="pagination">
+			<c:if test="${pager.curBlock gt 1}">
+				<li><span class="list" id="${pager.startNum-1}">이전</span></li>
+			</c:if>
+			<c:forEach begin="0" end="${list.totalPages}" var="i">
+				<li><span class="list" id="${i}">${i+1}</span></li>
+			</c:forEach>
+			<c:if test="${pager.curBlock ne pager.totalBlock}">
+				<li><span class="list" id="${pager.lastNum+1}">다음</span></li>
+			</c:if>
+		</ul>
+	</div>
+		
 		
 		<form  id="frm" action="noticeList">
 			<input type="hidden" id="curPage" value= "1" name="curPage" >
@@ -57,6 +75,7 @@
 
 		</form>
 </div>
+
 <script type="text/javascript">
 var kind = '${pager.kind}';
 if(kind==''){

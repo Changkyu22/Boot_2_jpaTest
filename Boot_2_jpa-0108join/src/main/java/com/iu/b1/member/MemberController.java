@@ -74,7 +74,7 @@ public class MemberController {
 	}
 	
 	@PostMapping("memberJoin")
-	public ModelAndView memberJoin(@Valid MemberVO memberVO,BindingResult bindingResult, MultipartFile files) throws Exception{
+	public ModelAndView memberJoin(@Valid MemberVO memberVO, BindingResult bindingResult, MultipartFile files) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		if(bindingResult.hasErrors()) {

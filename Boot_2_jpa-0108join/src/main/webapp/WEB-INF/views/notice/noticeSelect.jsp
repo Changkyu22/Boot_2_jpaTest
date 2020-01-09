@@ -18,7 +18,7 @@ ${noticeVO.regDate}
 ${noticeVO.hit}
 <br>
 <c:forEach items="${noticeVO.noticeFilesVOs}" var="vo">
-<img src="../images/${vo.fname}" class="img-rounded" style="width: 400px; height: 400px;">
+<img src="../notice/${vo.fname}" class="img-rounded" style="width: 400px; height: 400px;">
 ${vo.fname}
 </c:forEach>
 
