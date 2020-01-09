@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.iu.b1.Board.BoardVO;
 
 @Service
+@Transactional
 public class NoticeService {
 	
 	@Autowired
@@ -21,7 +22,6 @@ public class NoticeService {
 	} 
 	
 	
-	@Transactional
 	public Optional<NoticeVO> noticeSelect(int num) throws Exception{
 		return noticeRepository.findById(num);
 	}

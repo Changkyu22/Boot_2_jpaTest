@@ -16,7 +16,7 @@
 </h1>
 
 <div class="container">
-	<img src="./images/iu1.jpg">
+	<img src="./images/park1.jpg">
 </div>
 </div>
 </body>

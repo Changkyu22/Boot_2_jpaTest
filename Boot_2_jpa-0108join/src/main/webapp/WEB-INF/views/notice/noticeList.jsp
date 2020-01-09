@@ -23,10 +23,11 @@
 		<c:forEach items="${list}" var="vo">
 			<tr>
 				<td>${vo.num}</td>
-				<td style="cursor: pointer;" onclick="location.href='noticeSelect?num=${vo.num}';">${vo.title}</td>
+				<td style="cursor: pointer;" onclick="location.href='${board}Select?num=${vo.num}';">${vo.title}</td>
 				<td>${vo.writer}</td>
 				<td>${vo.regDate}</td>
 				<td>${vo.hit}</td>
+			
 			</tr>
 		</c:forEach>
 	</table>
