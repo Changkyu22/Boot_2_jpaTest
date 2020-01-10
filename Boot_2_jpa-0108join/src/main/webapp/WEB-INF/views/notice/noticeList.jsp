@@ -50,7 +50,7 @@
 <!-- 	</div> -->
 	<div style="margin: auto;">
 		<ul class="pagination">
-			<c:if test="${pager.curBlock gt 1}">
+			<c:if test="${pager.curBlock  gt 1}">
 				<li><span class="list" id="${pager.startNum-1}">이전</span></li>
 			</c:if>
 			<c:forEach begin="0" end="${list.totalPages}" var="i">
@@ -77,16 +77,16 @@
 </div>
 
 <script type="text/javascript">
-var kind = '${pager.kind}';
-if(kind==''){
-	kind='kt';
-}
-$("#"+kind).prop("selected", true);
-
-$(".list").click(function() {
-	$("#curPage").val($(this).attr("id"))
-	$("#frm").submit();
-});
+	var kind = '${pager.kind}';
+	if(kind==''){
+		kind='kt';
+	}
+	$("#"+kind).prop("selected", true);
+	
+	$(".list").click(function() {
+		$("#curPage").val($(this).attr("id"))
+		$("#frm").submit();
+	});
 
 </script>
 </body>

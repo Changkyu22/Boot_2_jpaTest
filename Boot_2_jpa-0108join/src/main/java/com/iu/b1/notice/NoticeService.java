@@ -29,12 +29,13 @@ public class NoticeService {
 	@Autowired
 	private FileSaver fileSaver;
 	
+	
 	public Page<BoardVO> noticeList(Pageable pageable) throws Exception{
 		Page<BoardVO> page = noticeRepository.findByNumGreaterThanOrderByNumDesc(0, pageable);
+		
 		System.out.println(page.getTotalPages());
 		return page;
 	} 
-	
 	
 	public Optional<NoticeVO> noticeSelect(int num) throws Exception{
 		return noticeRepository.findById(num);
